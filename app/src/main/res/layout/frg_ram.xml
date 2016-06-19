@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/lvInfoList"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imWallpaper"
+        android:layout_above="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imWallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ram_wallpaper" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@drawable/progressbar_background"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linearLayout"
+        android:weightSum="100">
+
+        <ImageView
+            android:id="@+id/ivUsedSize"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/progressbar_fill_red"
+            android:layout_weight="50"/>
+
+        <ImageView
+            android:id="@+id/ivFreeSize"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/progressbar_fill_blue"
+            android:scaleType="fitXY"
+            android:layout_weight="50"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

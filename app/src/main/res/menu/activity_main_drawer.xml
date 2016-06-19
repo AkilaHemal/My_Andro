@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="System Information">
+        <menu android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_Hardware_Info"
+                android:icon="@drawable/hardware"
+                android:title="Hardware" />
+
+            <item
+                android:id="@+id/nav_Display_Info"
+                android:icon="@drawable/dispaly"
+                android:title="Display" />
+
+            <item
+                android:id="@+id/nav_Processor_Info"
+                android:icon="@drawable/processor"
+                android:title="Processor" />
+
+            <item
+                android:id="@+id/nav_RAM_Info"
+                android:icon="@drawable/ram_icon"
+                android:title="RAM" />
+
+            <item
+                android:id="@+id/nav_Sensors_Info"
+                android:icon="@drawable/sensor_icon"
+                android:title="Sensors" />
+
+        </menu>
+    </item>
+
+    <item android:title="Security Information">
+        <menu android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_Security"
+                android:icon="@drawable/security_icon"
+                android:title="Security" />
+        </menu>
+    </item>
+
+</menu>

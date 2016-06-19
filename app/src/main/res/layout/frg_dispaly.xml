@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/imWallpaper"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/display_wallpaper"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/display_size"
+        android:id="@+id/ivDisplaySize"
+        android:layout_below="@+id/tvDispalyModel"
+        android:layout_above="@+id/tvWidth" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Height"
+        android:id="@+id/tvHeight"
+        android:gravity="center"
+        android:layout_alignTop="@+id/ivDisplaySize"
+        android:layout_alignBottom="@+id/ivDisplaySize"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/tvDiagonal"
+        android:layout_toEndOf="@+id/tvDiagonal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weidth"
+        android:id="@+id/tvWidth"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diagonal"
+        android:id="@+id/tvDiagonal"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/ivDisplaySize"
+        android:layout_alignBottom="@+id/ivDisplaySize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Display Model"
+        android:id="@+id/tvDispalyModel"
+        android:layout_below="@+id/imWallpaper"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Display"
+        android:id="@+id/tvTitle"
+        android:gravity="center_vertical"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/tvDispalyModel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
