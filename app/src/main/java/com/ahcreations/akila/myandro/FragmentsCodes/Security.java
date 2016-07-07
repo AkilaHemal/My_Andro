@@ -129,7 +129,7 @@ public class Security extends Fragment {
         while (cus.moveToNext()) {
             MagsList.add(cus.getString(0));
         }
-        MsgAdapter = new ArrayAdapter<>(view.getContext(), R.layout.mag_list_row, MagsList);
+        MsgAdapter = new ArrayAdapter<>(view.getContext(), R.layout.mag_list_row,R.id.tvmsg, MagsList);
         lvMags.setAdapter(MsgAdapter);
 
         MainActivity.assessingMsgList = true;
