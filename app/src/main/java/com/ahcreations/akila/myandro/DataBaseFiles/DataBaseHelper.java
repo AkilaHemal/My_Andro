@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
-import java.sql.DatabaseMetaData;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -48,18 +46,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValue.put(Col4, dateFormat.format(date));
 
         long result = db.insert(TableName, null, contentValue);
-        if (result == -1) {
-            return false;
-        } else {
-            return true;
-        }
+        return result != -1;
 
     }
 
     public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + TableName, null);
-        return res;
+        return db.rawQuery("select * from " + TableName, null);
     }
 
     public Integer deleteData(String id) {
@@ -69,14 +62,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public Cursor getNumberList() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT Number, MAX(Date) FROM " + TableName + " GROUP BY Number ORDER BY MAX(Date) DESC", null);
-        return res;
+        return db.rawQuery("SELECT Number, MAX(Date), count(Number) FROM " + TableName + " GROUP BY Number ORDER BY MAX(Date) DESC", null);
     }
 
     public Cursor getMsgList(String number) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT Message, Date FROM " + TableName + " WHERE Number LIKE '" + number + "' ORDER BY Date DESC" , null);
-        return res;
+        return db.rawQuery("SELECT Message, Date FROM " + TableName + " WHERE Number LIKE '" + number + "' ORDER BY Date DESC", null);
     }
 
 }
