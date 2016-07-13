@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,7 +78,6 @@ public class Security extends Fragment {
     public static void BackToNumberList() {
         if (lvMags.getAdapter() == MsgAdapter) {
             LoadNumberList();
-        } else if (lvMags.getAdapter() == NumbersAdapter) {
         }
     }
 
@@ -131,7 +129,7 @@ public class Security extends Fragment {
         while (cus.moveToNext()) {
             MagsList.add(cus.getString(0));
         }
-        MsgAdapter = new ArrayAdapter<>(view.getContext(), R.layout.mag_list_row, MagsList);
+        MsgAdapter = new ArrayAdapter<>(view.getContext(), R.layout.mag_list_row,R.id.tvmsg, MagsList);
         lvMags.setAdapter(MsgAdapter);
 
         MainActivity.assessingMsgList = true;
@@ -144,7 +142,6 @@ public class Security extends Fragment {
         abc.clear();
 
 
-
         Cursor cus = mydb.getNumberList();
         while (cus.moveToNext()) {
             NumberList.add(cus.getString(0));
@@ -152,7 +149,7 @@ public class Security extends Fragment {
 
             //ImageList.add(retrieveContactPhoto(view.getContext(), cus.getString(0)));
             //ImageList.add(BitmapFactory.decodeResource(view.getResources(),R.drawable.app_icon));
-            CustomArrayList a = new CustomArrayList(getContactName(view.getContext(), cus.getString(0)),"hjgj");
+            CustomArrayList a = new CustomArrayList(getContactName(view.getContext(), cus.getString(0)) + " (" + cus.getString(2) + ")", "hjgj");
             abc.add(a);
         }
 
@@ -189,8 +186,9 @@ public class Security extends Fragment {
                 R.drawable.app_icon);
 
         try {
+            assert contactId != null;
             InputStream inputStream = ContactsContract.Contacts.openContactPhotoInputStream(context.getContentResolver(),
-                    ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, new Long(contactId)));
+                    ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, Long.valueOf(contactId)));
 
             if (inputStream != null) {
                 photo = BitmapFactory.decodeStream(inputStream);
@@ -212,14 +210,14 @@ public class Security extends Fragment {
         if (cursor == null) {
             return null;
         }
-        String contactName = null;
+        String contactName;
         if (cursor.moveToFirst()) {
             contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME));
         } else {
             contactName = phoneNumber;
         }
 
-        if (cursor != null && !cursor.isClosed()) {
+        if (!cursor.isClosed()) {
             cursor.close();
         }
 
